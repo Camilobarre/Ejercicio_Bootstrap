@@ -1,3 +1,4 @@
+
 const temaOscuro = () => {
     document.querySelector("body").setAttribute("data-bs-theme", "dark");
     document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
@@ -13,32 +14,13 @@ const cambiarTema = () => {
         temaOscuro() : temaClaro();
 }
 
-const nav = document.createElement("nav");
-nav.innerHTML = `
-    <div class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-        <div class="container-fluid">
-            <button onclick="cambiarTema()" class="btn rounded-fill"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
-            <a class="navbar-brand" href="#">Menú</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+const footer = document.createElement("footer");
+footer.innerHTML = `
+    <h6 data-bs-theme="light">© Creado por Camilo Barreneche. © 2024 Riwi Veterinaria. Todos los derechos reservados.</h6>
+    </div>
     </div>
 `;
-document.body.appendChild(nav);
+document.body.appendChild(footer);
 
 //Posicion fija del header
 window.onload = function () {
@@ -110,23 +92,17 @@ crearSaltoDeLinea();
 const formulario = document.createElement("form");
 formulario.innerHTML = `
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <label for="exampleInputEmail1" class="form-label">Email</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <div id="emailHelp" class="form-text">No compartiremos tus datos.</div>
     </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <label for="exampleInputPassword1" class="form-label">Comentarios</label>
+        <input type="textarea" class="form-control" id="exampleInputPassword1">
     </div>
-    <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Enviar</button>
 `;
 main.appendChild(formulario);
 
-
-
-formulario.style.marginBottom = "20px"; // También agregamos un margen inferior al formulario
+formulario.style.marginBottom = "20px";
 main.appendChild(formulario);
