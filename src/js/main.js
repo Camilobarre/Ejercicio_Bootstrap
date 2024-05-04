@@ -1,3 +1,4 @@
+// Funciones para alternar entre modo claro y modo oscuro
 const temaOscuro = () => {
     document.querySelector("body").setAttribute("data-bs-theme", "dark");
     document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
@@ -13,7 +14,6 @@ const cambiarTema = () => {
         temaOscuro() : temaClaro();
 }
 
-
 //Posicion fija del header
 window.onload = function () {
     let header = document.querySelector("header");
@@ -25,7 +25,7 @@ window.onload = function () {
 
 const header = document.querySelector("header")
 
-//Crear un elemento
+//Crear un elemento en el header
 const titulo = document.createElement("h1")
 titulo.textContent = "Veterinaria RIWI"
 
@@ -37,6 +37,7 @@ header.appendChild(titulo)
 
 const main = document.querySelector("main");
 
+//Creamos una función para hacer un salto de línea
 function crearSaltoDeLinea() {
     const div = document.createElement("div");
     div.style.height = "20px";
@@ -44,13 +45,16 @@ function crearSaltoDeLinea() {
     main.appendChild(div);
 }
 
-const primerTitulo = document.createElement("h1");
+//Creamos un título para la primera sección
+const primerTitulo = document.createElement("h1", { "data-bs-theme": "light" });
 primerTitulo.textContent = "Nuestras mascotas";
-primerTitulo.classList.add("text-dark", "text-center", "d-block", "mb-3");
+primerTitulo.id = "nuestras-mascotas";
+primerTitulo.classList.add("text-center", "d-block", "mb-3");
 main.appendChild(primerTitulo);
 
 crearSaltoDeLinea();
 
+//Ciclo For para las card de las mascotas usando Bootstrap
 for (let i = 0; i < mascotas.length; i++) {
     const section = document.createElement("section");
     section.classList.add("card", "text-capitalize");
@@ -75,13 +79,16 @@ for (let i = 0; i < mascotas.length; i++) {
 
 crearSaltoDeLinea();
 
-const segundoTitulo = document.createElement("h1");
+//Creamos un título para la segunda sección
+const segundoTitulo = document.createElement("h1", { "data-bs-theme": "light" });
 segundoTitulo.textContent = "Adopta tu mascota";
-segundoTitulo.classList.add("text-dark", "text-center", "d-block", "mb-3");
+segundoTitulo.id = "adopta-mascota";
+segundoTitulo.classList.add("text-center", "d-block", "mb-3");
 main.appendChild(segundoTitulo);
 
 crearSaltoDeLinea();
 
+//Insertamos un formulario usando Bootstrap
 const formulario = document.createElement("form");
 formulario.innerHTML = `
 <div class="mb-3" id="comentario">
@@ -102,13 +109,16 @@ main.appendChild(formulario);
 
 crearSaltoDeLinea();
 
-const tercerTitulo = document.createElement("h1");
+//Creamos un título para la tercera sección
+const tercerTitulo = document.createElement("h1", { "data-bs-theme": "light" });
 tercerTitulo.textContent = "Mapa";
-tercerTitulo.classList.add("text-dark", "text-center", "d-block", "mb-3");
+tercerTitulo.id = "mapa";
+tercerTitulo.classList.add("text-center", "d-block", "mb-3");
 main.appendChild(tercerTitulo);
 
 crearSaltoDeLinea();
 
+//Insertamos un mapa desde Google
 const mapa = document.createElement("map");
 mapa.innerHTML = `
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15865.351432508582!2d-75.5836149!3d6.219101!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44293f0e114eef%3A0x99610cdd44c7c081!2sRiwi%20-%20Be%20a%20Coder!5e0!3m2!1ses-419!2sco!4v1714760214438!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -118,7 +128,9 @@ main.appendChild(mapa);
 mapa.style.marginBottom = "20px";
 main.appendChild(mapa);
 
+//Creamos un footer
 const footer = document.createElement("footer");
+footer.classList.add("text-center")
 footer.innerHTML = `
     <h6 data-bs-theme="light">© Creado por Camilo Barreneche. © 2024 Riwi Veterinaria. Todos los derechos reservados.</h6>
     </div>
